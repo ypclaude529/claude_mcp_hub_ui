@@ -1,4 +1,4 @@
-import { SERVERS } from "../../data/mockData";
+import { SERVERS, SUITES } from "../../data/mockData";
 import Badge from "../ui/Badge";
 
 export default function OverviewView({ onNavigate }) {
@@ -8,6 +8,11 @@ export default function OverviewView({ onNavigate }) {
     (acc, s) => acc + s.tools.reduce((a, t) => a + t.calls, 0),
     0
   );
+
+  const suiteGroups = SUITES.map((suite) => ({
+    ...suite,
+    servers: SERVERS.filter((s) => s.suite === suite.id),
+  })).filter((g) => g.servers.length > 0);
 
   return (
     <div>
@@ -29,26 +34,34 @@ export default function OverviewView({ onNavigate }) {
         </div>
       </div>
 
-      <div className="section-title">MCP Servers</div>
+      {suiteGroups.map((group) => (
+        <div key={group.id} className="suite-group">
+          <div className="suite-group-header">
+            <span className={`suite-badge suite-${group.id}`}>{group.id}</span>
+            <span className="suite-group-desc">{group.desc}</span>
+            <span className="suite-group-count">{group.servers.length} server{group.servers.length > 1 ? "s" : ""}</span>
+          </div>
 
-      {SERVERS.map((server) => (
-        <div
-          key={server.id}
-          className="server-row"
-          onClick={() => onNavigate("tools")}
-        >
-          <div className="server-row-left">
-            <span className={`dot ${server.status === "online" ? "green" : "red"}`} />
-            <div>
-              <div className="server-row-name">{server.name}</div>
-              <div className="server-row-desc">{server.description}</div>
+          {group.servers.map((server) => (
+            <div
+              key={server.id}
+              className="server-row"
+              onClick={() => onNavigate("tools")}
+            >
+              <div className="server-row-left">
+                <span className={`dot ${server.status === "online" ? "green" : "red"}`} />
+                <div>
+                  <div className="server-row-name">{server.name}</div>
+                  <div className="server-row-desc">{server.description}</div>
+                </div>
+              </div>
+              <div className="server-row-right">
+                <span>{server.tools.length} tool{server.tools.length > 1 ? "s" : ""}</span>
+                <span>ping {server.lastPing}</span>
+                <Badge label={server.status} level={server.status} />
+              </div>
             </div>
-          </div>
-          <div className="server-row-right">
-            <span>{server.tools.length} tool{server.tools.length > 1 ? "s" : ""}</span>
-            <span>ping {server.lastPing}</span>
-            <Badge label={server.status} level={server.status} />
-          </div>
+          ))}
         </div>
       ))}
     </div>

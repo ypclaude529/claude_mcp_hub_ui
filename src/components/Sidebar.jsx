@@ -1,10 +1,11 @@
 import Icon from "./ui/Icon";
 
 const NAV_ITEMS = [
-  { id: "overview", icon: "server",    label: "Server 總覽" },
-  { id: "tools",    icon: "tool",      label: "Tools 管理" },
-  { id: "logs",     icon: "clipboard", label: "稽核 Log" },
-  { id: "routing",  icon: "route",     label: "路由規則" },
+  { id: "overview",     icon: "server",    label: "Server 總覽" },
+  { id: "tools",        icon: "tool",      label: "Tools 管理" },
+  { id: "logs",         icon: "clipboard", label: "稽核 Log" },
+  { id: "routing",      icon: "route",     label: "路由規則" },
+  { id: "permissions",  icon: "shield",    label: "權限管理" },
 ];
 
 export default function Sidebar({ activeTab, onTabChange }) {

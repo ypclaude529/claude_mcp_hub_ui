@@ -4,12 +4,14 @@ import OverviewView from "./components/views/OverviewView";
 import ToolsView from "./components/views/ToolsView";
 import LogsView from "./components/views/LogsView";
 import RoutingView from "./components/views/RoutingView";
+import PermissionsView from "./components/views/PermissionsView";
 
 const VIEWS = {
-  overview: OverviewView,
-  tools:    ToolsView,
-  logs:     LogsView,
-  routing:  RoutingView,
+  overview:    OverviewView,
+  tools:       ToolsView,
+  logs:        LogsView,
+  routing:     RoutingView,
+  permissions: PermissionsView,
 };
 
 export default function App() {

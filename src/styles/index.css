@@ -63,7 +63,7 @@ body {
 .server-row-right   { display: flex; align-items: center; gap: 14px; font-size: 11px; color: #aaa; }
 
 /* Tools view */
-.tools-grid    { display: grid; grid-template-columns: 220px 1fr; gap: 16px; height: calc(100vh - 120px); }
+.tools-grid    { display: grid; grid-template-columns: 220px 1fr; gap: 16px; height: calc(100vh - 160px); }
 .tool-list     { overflow: auto; }
 .tool-item     { background: #fff; border: 1px solid #e5e5e2; border-radius: 9px; padding: 11px 13px; margin-bottom: 8px; cursor: pointer; transition: border-color .15s; }
 .tool-item:hover,
@@ -115,3 +115,40 @@ body {
 .warn-box  { background: #fffbeb; border: 1px solid #fcd34d; border-radius: 9px; padding: 11px 14px; font-size: 12px; color: #92400e; margin-bottom: 16px; display: flex; align-items: flex-start; gap: 8px; }
 .route-note { background: #fafaf8; border-radius: 10px; padding: 15px; font-size: 12px; color: #777; line-height: 1.8; margin-top: 8px; }
 .route-note-title { font-weight: 600; color: #444; display: block; margin-bottom: 6px; }
+
+/* Suite badges */
+.suite-badge          { display: inline-flex; align-items: center; padding: 2px 9px; border-radius: 20px; font-size: 11px; font-weight: 700; }
+.suite-HCM            { background: #ede9fe; color: #6d28d9; }
+.suite-SCM            { background: #dbeafe; color: #1d4ed8; }
+.suite-FCM            { background: #fef3c7; color: #92400e; }
+.suite-CRM            { background: #d1fae5; color: #065f46; }
+.suite-BLM            { background: #ffe4e6; color: #9f1239; }
+.suite-General        { background: #f3f4f6; color: #374151; }
+
+/* Suite filter bar (ToolsView) */
+.suite-filter-bar     { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px; }
+.suite-chip           { padding: 5px 13px; border-radius: 20px; font-size: 12px; font-weight: 600; cursor: pointer; border: 1px solid #e5e5e2; background: #fff; color: #666; transition: all .15s; }
+.suite-chip.active,
+.suite-chip:hover     { border-color: transparent; }
+.suite-chip.active    { background: #eef2ff; color: #4338ca; }
+.suite-chip-HCM.active    { background: #ede9fe; color: #6d28d9; }
+.suite-chip-SCM.active    { background: #dbeafe; color: #1d4ed8; }
+.suite-chip-FCM.active    { background: #fef3c7; color: #92400e; }
+.suite-chip-CRM.active    { background: #d1fae5; color: #065f46; }
+.suite-chip-BLM.active    { background: #ffe4e6; color: #9f1239; }
+.suite-chip-General.active { background: #f3f4f6; color: #374151; }
+
+/* Suite group (OverviewView) */
+.suite-group        { margin-bottom: 22px; }
+.suite-group-header { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+.suite-group-desc   { font-size: 12px; color: #777; flex: 1; }
+.suite-group-count  { font-size: 11px; color: #bbb; }
+
+/* Permission rows (PermissionsView) */
+.perm-grid          { display: flex; flex-direction: column; gap: 6px; }
+.perm-row           { display: flex; align-items: center; justify-content: space-between; padding: 9px 14px; background: #fafaf8; border-radius: 8px; }
+.perm-role          { font-size: 13px; color: #333; }
+
+/* Suite tools list (PermissionsView) */
+.suite-tools-list   { display: flex; flex-direction: column; gap: 6px; }
+.suite-tool-row     { display: flex; align-items: center; gap: 10px; padding: 8px 12px; background: #fafaf8; border-radius: 8px; }
